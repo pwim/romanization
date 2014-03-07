@@ -2,7 +2,8 @@ $:.unshift File.expand_path('../../lib', __FILE__)
 require 'romanize'
 require 'minitest/autorun'
 
-class TestRomanize < MiniTest::Test
+minitest_class = MiniTest.const_defined?(:Test) ? MiniTest::Test : MiniTest::Unit::TestCase
+class TestRomanize < minitest_class
   include Romanize
 
   def test_romanize_basic
